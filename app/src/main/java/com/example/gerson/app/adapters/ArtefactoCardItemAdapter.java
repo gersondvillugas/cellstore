@@ -6,6 +6,7 @@ import android.content.Context;
 import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gerson.app.R;
+import com.example.gerson.app.activities.LoginActivity;
 import com.example.gerson.app.models.Artefacto;
 
 import org.w3c.dom.Text;
@@ -37,14 +39,15 @@ public class ArtefactoCardItemAdapter extends RecyclerView.Adapter<ArtefactoCard
         View view;
         LayoutInflater mInflater = LayoutInflater.from(mContext);
         view = mInflater.inflate(R.layout.mycard_item, viewGroup, false);
-        return new ArtefactoCardItem(view, mContext, dialog);
+        return new ArtefactoCardItem(view, dialog);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ArtefactoCardItem artefactoCardItem, int i) {
         artefactoCardItem.artefacto_titulo.setText(mData.get(i).getNombre());
-        artefactoCardItem.artefacto_precio.setText(mData.get(i).getPrecio().toString());
+        artefactoCardItem.artefacto_precio.setText("S/ "+mData.get(i).getPrecio().toString());
         artefactoCardItem.artefacto_img.setImageResource(mData.get(i).getId_img());
+        artefactoCardItem.setData(mData, i);
     }
 
     @Override
@@ -59,25 +62,58 @@ public class ArtefactoCardItemAdapter extends RecyclerView.Adapter<ArtefactoCard
         ImageView artefacto_img;
         ImageView artefacto_lupa_img;
 
-        private Context mContext;
         private Dialog dialog;
-        public ArtefactoCardItem(View view, Context context, final Dialog dialog){
+        private int key;
+        private List<Artefacto> mData;
+
+        public void setData(final List<Artefacto> mData, int  i) {
+            this.mData = mData;
+            this.key = i;
+            artefacto_lupa_img.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View view){
+
+                    TextView nombre = (TextView)dialog.findViewById(R.id.artefacto_nombre);
+                    TextView procesador = (TextView)dialog.findViewById(R.id.artefacto_procesador);
+                    TextView gpu = (TextView)dialog.findViewById(R.id.artefacto_gpu);
+                    TextView camara = (TextView)dialog.findViewById(R.id.artefacto_camara);
+                    TextView pantalla = (TextView)dialog.findViewById(R.id.artefacto_pantalla);
+                    TextView ram = (TextView)dialog.findViewById(R.id.artefacto_ram);
+                    TextView capacidad = (TextView)dialog.findViewById(R.id.artefacto_capacidad);
+                    TextView bateria = (TextView)dialog.findViewById(R.id.artefacto_bateria);
+                    TextView precio = (TextView)dialog.findViewById(R.id.artefacto_precio);
+                    ImageView img = (ImageView)dialog.findViewById(R.id.artefacto_img);
+
+                    TextView cantidad = (TextView)dialog.findViewById(R.id.artefacto_cantidad);
+
+                    Artefacto artefacto = mData.get(key);
+
+                    nombre.setText(artefacto.getNombre());
+                    procesador.setText( "Procesador: " + artefacto.getProcesador());
+                    gpu.setText(        "GPU: " + artefacto.getGpu());
+                    camara.setText(     "Camara: " + artefacto.getCamara().toString());
+                    pantalla.setText(   "Pantalla: " + artefacto.getPantalla());
+                    ram.setText(        "RAM: " + artefacto.getRam());
+                    capacidad.setText(  "Capacidad : " + artefacto.getCapacidad());
+                    bateria.setText(    "Bateria: " + artefacto.getBateria());
+                    precio.setText(     String.format("S/ %.2f",artefacto.getPrecio()));
+                    img.setImageResource( artefacto.getId_img());
+                    cantidad.setText("2");
+                    dialog.show();
+
+                }
+            });
+        }
+
+        public ArtefactoCardItem(View view, final Dialog dialog){
             super(view);
             this.dialog = dialog;
-            this.mContext = context;
+            this.mData = mData;
 
             artefacto_img = (ImageView)itemView.findViewById(R.id.artefacto_img_id);
             artefacto_titulo = (TextView)itemView.findViewById(R.id.artefacto_text_titulo_id);
             artefacto_precio = (TextView)itemView.findViewById(R.id.artefacto_text_precio_id);
             artefacto_lupa_img = (ImageView)itemView.findViewById(R.id.artefacto_lupa_icon_id);
 
-            artefacto_lupa_img.setOnClickListener(new View.OnClickListener(){
-                public void onClick(View view){
-
-                    dialog.show();
-
-                }
-            });
 
         }
     }
