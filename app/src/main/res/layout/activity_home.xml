@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollHome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
@@ -60,10 +61,12 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:clickable="true"
                 android:orientation="vertical">
                 <ImageView
                     android:layout_width="52dp"
                     android:layout_height="52dp"
+                    android:foreground="?android:attr/selectableItemBackground"
                     android:src="@drawable/todas_las_caracteristicas"/>
                 <TextView
                     android:layout_width="52dp"
@@ -78,10 +81,12 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:clickable="true"
                 android:orientation="vertical">
                 <ImageView
                     android:layout_width="52dp"
                     android:layout_height="52dp"
+                    android:foreground="?android:attr/selectableItemBackground"
                     android:src="@drawable/celulares"/>
                 <TextView
                     android:layout_width="52dp"
@@ -96,10 +101,12 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:clickable="true"
                 android:orientation="vertical">
                 <ImageView
                     android:layout_width="52dp"
                     android:layout_height="52dp"
+                    android:foreground="?android:attr/selectableItemBackground"
                     android:src="@drawable/tablets"/>
                 <TextView
                     android:layout_width="52dp"
@@ -114,10 +121,12 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:clickable="true"
                 android:orientation="vertical">
                 <ImageView
                     android:layout_width="52dp"
                     android:layout_height="52dp"
+                    android:foreground="?android:attr/selectableItemBackground"
                     android:src="@drawable/accesorios"/>
                 <TextView
                     android:layout_width="52dp"
@@ -135,7 +144,7 @@
             android:background="@drawable/header_artefact_list"
             android:layout_marginTop="20dp"
             android:paddingLeft="20dp"
-            android:elevation="2dp"
+            android:elevation="10dp"
             >
 
             <TextView

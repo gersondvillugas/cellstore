@@ -15,34 +15,63 @@
         android:gravity="center"
         >
 
-        <ImageView
-            android:id="@+id/artefacto_img_id"
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:background="#ffffff" />
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/artefacto_img_container_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/artefacto_img_id"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:background="#ffffff" />
+
+            <ImageView
+                android:id="@+id/artefacto_lupa_icon_id"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="6dp"
+                android:src="@drawable/lupa" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/artefacto_info_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:elevation="2dp"
             >
             <TextView
                 android:id="@+id/artefacto_text_titulo_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="10dp"
+                android:textSize="11dp"
                 android:layout_marginTop="6dp"
+                android:layout_centerHorizontal="true"
                 android:text="Artefacto Title"/>
+
             <TextView
                 android:id="@+id/artefacto_text_precio_id"
                 android:layout_width="wrap_content"
-                android:textSize="10dp"
-                android:layout_marginTop="4dp"
-                android:textFontWeight="bold"
                 android:layout_height="wrap_content"
-                android:text="Precio"/>
-        </LinearLayout>
+                android:layout_below="@+id/artefacto_text_titulo_id"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dp"
+                android:text="Precio"
+                android:textStyle="bold"
+                android:textSize="11dp" />
+
+            <ImageView
+                android:id="@+id/artefacto_img_dardo"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="6dp"
+                android:src="@drawable/dardo" />
+        </RelativeLayout>
     </LinearLayout>
 
 </android.support.v7.widget.CardView>
