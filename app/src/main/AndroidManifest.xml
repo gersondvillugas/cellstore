@@ -3,30 +3,28 @@
     package="com.example.gerson.app">
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".activities.RegisterActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".activities.MainActivity"></activity>
+        <activity android:name=".activities.RegisterActivity"></activity>
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.Main2Activity" />
-        <activity android:name=".activities.Home"/>
-        <activity android:name=".activities.ResultadoBusqueda"/>
+        <activity android:name=".activities.Home">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.ResultadoBusqueda" />
+        <activity android:name=".activities.ResultadoTablet">
+
+        </activity>
     </application>
 
 </manifest>

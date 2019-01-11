@@ -1,45 +1,40 @@
 package com.example.gerson.app.activities;
 
-import android.content.Intent;
+import android.app.Dialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ScrollView;
+import android.widget.LinearLayout;
 
 import com.example.gerson.app.R;
 import com.example.gerson.app.adapters.ArtefactoCardItemAdapter;
+import com.example.gerson.app.adapters.TabletCardItemAdapter;
 import com.example.gerson.app.models.Artefacto;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Home extends AppCompatActivity {
+public class ResultadoTablet extends AppCompatActivity {
+
     public List<Artefacto> artefactos;
+    private Dialog dialog;
+    private LinearLayout carrito;
     private Toolbar toolbar;
-    private Button liscel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_resultado_tablet);
 
         toolbar = (Toolbar)findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
-         liscel=(Button)findViewById(R.id.idis);
-         liscel.setOnClickListener(new View.OnClickListener() {
 
+        dialog = new Dialog(this);
+        dialog.setContentView(R.layout.tablet_detalles);
+        carrito = (LinearLayout)findViewById(R.id.carrito_id);
 
-             @Override
-             public void onClick(View v) {
-                 Intent i=new Intent(Home.this,RegisterActivity.class);
-                 startActivity(i);
-             }
-         });
         artefactos = new ArrayList<>();
         artefactos.add(new Artefacto("Xiami Pocophone F1", 1479.00,
                 "Snapdragon 660 octa-core Kryo 2.2 + 1.8 Ghz", "Adreno 512",
@@ -51,6 +46,16 @@ public class Home extends AppCompatActivity {
                 20.0, "IPS, 5.99’’", "4 / 6 GB", "32 / 64 / 128",
                 "3.010 mAh Quick Charge 3.0", R.drawable.xiaomi
         ));
+        artefactos.add(new Artefacto("LG V35 ThinQ", 1599.00,
+                "Snapdragon 845 octa-core", "Adreno 512",
+                16.0, "IPS, 6’’", "6 GB", "64",
+                "3.300 mAh", R.drawable.lg_v35_thinq
+        ));
+        artefactos.add(new Artefacto("Xiaomi Redmi 6", 529.00,
+                "Helio P22 de ocho nucleos", "Adreno 512",
+                12.0, "IPS, 5.45’’", "3 GB", "32",
+                "3.000 mAh Quick Charge 3.0", R.drawable.xiaomi_redmi_6
+        ));
         artefactos.add(new Artefacto("Xiami Pocophone F1", 1479.00,
                 "Snapdragon 660 octa-core Kryo 2.2 + 1.8 Ghz", "Adreno 512",
                 20.0, "IPS, 5.99’’", "4 / 6 GB", "32 / 64 / 128",
@@ -59,36 +64,18 @@ public class Home extends AppCompatActivity {
         artefactos.add(new Artefacto("Xiaomi Mia A2", 789.00,
                 "Snapdragon 660 octa-core Kryo 2.2 + 1.8 Ghz", "Adreno 512",
                 20.0, "IPS, 5.99’’", "4 / 6 GB", "32 / 64 / 128",
-                "3.010 mAh Quick Charge 3.0", R.drawable.xiaomi
+                "3.010 mAh Quick Charge 3.0", R.drawable.huawei
         ));
-        artefactos.add(new Artefacto("Xiami Pocophone F1", 1479.00,
-                "Snapdragon 660 octa-core Kryo 2.2 + 1.8 Ghz", "Adreno 512",
-                20.0, "IPS, 5.99’’", "4 / 6 GB", "32 / 64 / 128",
-                "3.010 mAh Quick Charge 3.0", R.drawable.sansung
-        ));
-        artefactos.add(new Artefacto("Xiaomi Mia A2", 789.00,
-                "Snapdragon 660 octa-core Kryo 2.2 + 1.8 Ghz", "Adreno 512",
-                20.0, "IPS, 5.99’’", "4 / 6 GB", "32 / 64 / 128",
-                "3.010 mAh Quick Charge 3.0", R.drawable.xiaomi
-        ));
-        RecyclerView artefactosList = (RecyclerView)findViewById(R.id.ArtefactosList);
+        RecyclerView artefactosList = (RecyclerView)findViewById(R.id.TabletList);
         artefactosList.setFocusable(false);
-        ArtefactoCardItemAdapter adapter = new ArtefactoCardItemAdapter(this,artefactos, null);
+       TabletCardItemAdapter adapter = new TabletCardItemAdapter(this,artefactos, dialog);
         artefactosList.setLayoutManager(new GridLayoutManager(this,2));
         artefactosList.setAdapter(adapter);
 
     }
+
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.my_menu,menu);
         return true;
-    }
-    public  void ircel(View view){
-        Intent i=new Intent(Home.this,ResultadoBusqueda.class);
-        startActivity(i);
-    }
-
-    public void listtable(View view) {
-        Intent i=new Intent(Home.this,ResultadoTablet.class);
-        startActivity(i);
     }
 }

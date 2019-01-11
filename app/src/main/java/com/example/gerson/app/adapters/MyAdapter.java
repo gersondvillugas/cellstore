@@ -47,6 +47,11 @@ public abstract class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolde
 
     public abstract void onEntrada(Object entrada, View view);
 
+    public void setList(List<Celular> list) {
+        this.celulars = list;
+        notifyDataSetChanged();
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView textviewname;
         public TextView textViewPrecio;
@@ -62,7 +67,7 @@ public abstract class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolde
         public void bind(final Celular celulars, final OnItemClickListener listener){
 //procesamos los datos renderizar
             textviewname.setText(celulars.getName());
-            textViewPrecio.setText(celulars.getPrecio());
+            textViewPrecio.setText("$"+celulars.getPrecio().toString());
             Picasso.with(context).load(celulars.getPoster()).fit().into(ImageviewPoster);
             // ImageviewPoster.setImageResource(movie.getPoster());
             //definimos que por cada elemento de nuestro recycler view tenemos un click listener que se
@@ -76,6 +81,15 @@ public abstract class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolde
         }
 
     }
+
+    public void add(Celular celular){
+        if (!celulars.contains(celular)) {
+            celulars.add(celular);
+
+            notifyDataSetChanged();
+        }
+    }
+
     public interface  OnItemClickListener{
         void onItemClick(Celular celulars,int posicion);
 
