@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <include layout="@layout/toolbar"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:paddingLeft="20dp"
@@ -41,6 +42,7 @@
             <Button
                 android:layout_width="72dp"
                 android:layout_height="24dp"
+                android:onClick="irphone"
                 android:layout_alignStart="@+id/text__banner"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="0dp"

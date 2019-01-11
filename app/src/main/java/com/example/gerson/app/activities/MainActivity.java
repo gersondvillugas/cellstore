@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -41,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
 //mLayoutManager=new GridLayoutManager(this,2);
 //mLayoutManager=new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
         mAdapter= new MyAdapter(celulars, R.layout.recicler_view_item, new MyAdapter.OnItemClickListener() {
-
-
             @Override
             public void onItemClick(Celular celular, int posicion) {
                 //  removeMovie(posicion);
@@ -51,10 +50,9 @@ public class MainActivity extends AppCompatActivity {
                 sPhone.setDescripcion(celular.getDescripcion());
                 sPhone.setPoster(celular.getPoster());
 
-
                 Intent intent=new Intent(MainActivity.this,Main2Activity.class);
                 intent.putExtra(Celular.ORDEN,mAdapter.getItemCount()+1);
-                  startActivity(intent);
+                startActivity(intent);
             }
 
 
@@ -80,7 +78,13 @@ public class MainActivity extends AppCompatActivity {
             add(new Celular("SAMSUNG",R.drawable.samsung,"$400",""));
             add(new Celular("IPHONE",R.drawable.iphone,"$1000",""));
 
-
+            /*try{
+                sPhone.save();
+                Log.i("Dbflow","insertion good of date");
+            }catch (Exception e){
+                e.printStackTrace();
+                Log.i("Dbflow","wrong to insert data");
+            }*/
         }};
     }
 
