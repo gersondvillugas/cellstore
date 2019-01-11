@@ -2,58 +2,101 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/gradient_background"
     >
 
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="92dp"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textPersonName" />
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="360dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@drawable/background_white_border"
+        android:paddingTop="20dp"
+        >
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="224dp"
+            android:layout_height="36dp"
+            android:textSize="12sp"
+            android:hint="Correo Electronico"
+            android:inputType="textPersonName" />
+        <EditText
+            android:layout_width="224dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="12dp"
+            android:textSize="12sp"
+            android:hint="Numero de tarjeta"
+            android:inputType="textPersonName"/>
+        <LinearLayout
+            android:layout_width="224dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="12dp">
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:gravity="center_vertical"
+                android:textSize="12sp"
+                android:hint="Fecha de Vencimiento"
+                android:inputType="textPersonName"/>
 
-    <EditText
-        android:id="@+id/pass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="159dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:gravity="center_vertical"
+                android:textSize="12sp"
+                android:hint="3 digitos"/>
+        </LinearLayout>
+        <EditText
+            android:id="@+id/pass"
+            android:layout_width="224dp"
+            android:layout_height="36dp"
+            android:textSize="12sp"
+            android:ems="10"
+            android:hint="Contraseña"
+            android:layout_marginTop="12dp"
+            android:inputType="textPassword" />
 
-    <EditText
-        android:id="@+id/cpass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="166dp"
-        android:ems="10"
-        android:hint="Confirm Password"
-        android:inputType="textPassword" />
+        <EditText
+            android:id="@+id/cpass"
+            android:layout_width="224dp"
+            android:textSize="12sp"
+            android:layout_height="36dp"
+            android:hint="Confirmar Contraseña"
+            android:layout_marginTop="12dp"
+            android:inputType="textPassword" />
+        <Button
+            android:id="@+id/register"
+            android:layout_width="100dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center"
+            android:textSize="12sp"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/corner_button"
+            android:text="Registrar" />
 
-    <Button
-        android:id="@+id/register"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="92dp"
-        android:layout_marginStart="68dp"
-        android:text="REGISTER" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="@android:color/black"
+                android:layout_marginRight="6dp"
+                android:text="tienes cuenta?"/>
+            <TextView
+                android:id="@+id/login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="@color/colorPrimary"
+                android:text="Iniciar Sesion" />
+        </LinearLayout>
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/register"
-        android:layout_marginEnd="68dp"
-        android:text="LOGIN" />
 
 </RelativeLayout>

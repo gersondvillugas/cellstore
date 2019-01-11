@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gerson.app.DatabaseHelper;
@@ -14,7 +15,8 @@ import com.example.gerson.app.R;
 public class RegisterActivity extends AppCompatActivity {
 
     EditText e1,e2,e3;
-    Button b1,b2;
+    TextView b2;
+    Button b1;
     DatabaseHelper db;
     @Override
     protected void onCreate( Bundle savedInstanceState) {
@@ -26,15 +28,15 @@ public class RegisterActivity extends AppCompatActivity {
         e3=(EditText)findViewById(R.id.cpass);
 
         b1=(Button)findViewById(R.id.register);
-        b2=(Button)findViewById(R.id.login);
-         b2.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 Intent i=new Intent(RegisterActivity.this,LoginActivity.class);
-                 startActivity(i);
+        b2=(TextView)findViewById(R.id.login);
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(RegisterActivity.this,LoginActivity.class);
+                startActivity(i);
 
-             }
-         });
+            }
+        });
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
