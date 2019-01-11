@@ -68,7 +68,7 @@ public class ResultadoTablet extends AppCompatActivity {
         ));
         RecyclerView artefactosList = (RecyclerView)findViewById(R.id.TabletList);
         artefactosList.setFocusable(false);
-       TabletCardItemAdapter adapter = new TabletCardItemAdapter(this,artefactos, dialog);
+        TabletCardItemAdapter adapter = new TabletCardItemAdapter(this,artefactos, dialog);
         artefactosList.setLayoutManager(new GridLayoutManager(this,2));
         artefactosList.setAdapter(adapter);
 

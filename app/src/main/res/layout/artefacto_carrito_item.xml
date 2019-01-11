@@ -16,6 +16,7 @@
         <ImageView
             android:id="@+id/artefacto_img_id"
             android:layout_width="94dp"
+            android:scaleType="centerCrop"
             android:layout_height="match_parent"
             android:background="@android:color/darker_gray"/>
         <RelativeLayout
@@ -32,10 +33,10 @@
                 />
 
             <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_alignParentEnd="true"
-
+                android:src="@drawable/baseline_restore_from_trash_black_18dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="10dp" />
             <LinearLayout

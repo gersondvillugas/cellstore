@@ -1,4 +1,4 @@
-package com.example.gerson.app.activities;
+package com.example.gerson.app.activities.auth;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

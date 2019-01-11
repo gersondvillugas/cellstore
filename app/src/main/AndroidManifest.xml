@@ -11,8 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activities.MainActivity"></activity>
-        <activity android:name=".activities.RegisterActivity"></activity>
-        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.auth.RegisterActivity"></activity>
+        <activity android:name=".activities.auth.LoginActivity" />
         <activity android:name=".activities.Main2Activity" />
         <activity android:name=".activities.Home">
             <intent-filter>
@@ -23,14 +23,12 @@
         </activity>
         <activity android:name=".activities.ResultadoBusqueda" />
         <activity android:name=".activities.ResultadoTablet">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-<<<<<<< HEAD
-=======
-        <activity android:name=".activities.LoginActivity" />
-        <activity android:name=".activities.Main2Activity" />
-        <activity android:name=".activities.Home" />
-        <activity android:name=".activities.ResultadoBusqueda" />
         <activity android:name=".activities.ListCarrito">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,7 +36,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
->>>>>>> 6cb881299402002e1cce21416bb9717a6a11b141
     </application>
 
 </manifest>

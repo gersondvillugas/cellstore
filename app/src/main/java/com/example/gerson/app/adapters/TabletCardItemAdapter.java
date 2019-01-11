@@ -30,7 +30,7 @@ public class TabletCardItemAdapter  extends RecyclerView.Adapter<TabletCardItemA
     public TabletCardItemAdapter.TabletCardItem onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view;
         LayoutInflater mInflater = LayoutInflater.from(mContext);
-        view = mInflater.inflate(R.layout.mycard_item, viewGroup, false);
+        view = mInflater.inflate(R.layout.mytablet_item, viewGroup, false);
         return new TabletCardItemAdapter.TabletCardItem(view, dialog);
     }
 
