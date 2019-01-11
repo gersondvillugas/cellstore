@@ -19,14 +19,16 @@
         <activity android:name=".activities.RegisterActivity" />
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.Main2Activity" />
-        <activity android:name=".activities.Home">
+        <activity android:name=".activities.Home"/>
+        <activity android:name=".activities.ResultadoBusqueda"/>
+        <activity android:name=".activities.auth.Registro">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.ResultadoBusqueda">
+        <activity android:name=".activities.auth.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
