@@ -1,4 +1,4 @@
-package com.example.gerson.app.activities;
+package com.example.gerson.app.activities.auth;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

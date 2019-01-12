@@ -65,7 +65,7 @@ public class ListCarrito extends AppCompatActivity {
         listArtefactosView = findViewById(R.id.list_artefactos);
         listArtefactosView.setFocusable(false);
         ArtefactoCarritoItemAdapter adapter = new ArtefactoCarritoItemAdapter(this,artefactos);
-        listArtefactosView.setLayoutManager(new GridLayoutManager(this,1));
+        listArtefactosView.setLayoutManager(new GridLayoutManager(this,1 ));
         listArtefactosView.setAdapter(adapter);
 
     }

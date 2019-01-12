@@ -36,20 +36,20 @@ public class ResultadoTablet extends AppCompatActivity {
         carrito = (LinearLayout)findViewById(R.id.carrito_id);
 
         artefactos = new ArrayList<>();
-        artefactos.add(new Artefacto("Xiami Pocophone F1", 1479.00,
+        artefactos.add(new Artefacto("TABLET HUAWEI", 1479.00,
                 "Snapdragon 660 octa-core Kryo 2.2 + 1.8 Ghz", "Adreno 512",
                 20.0, "IPS, 5.99’’", "4 / 6 GB", "32 / 64 / 128",
-                "3.010 mAh Quick Charge 3.0", R.drawable.sansung
+                "3.010 mAh Quick Charge 3.0", R.drawable.huaweitablet
         ));
-        artefactos.add(new Artefacto("Xiaomi Mia A2", 789.00,
+        artefactos.add(new Artefacto("TABLET IPHONE", 789.00,
                 "Snapdragon 660 octa-core Kryo 2.2 + 1.8 Ghz", "Adreno 512",
                 20.0, "IPS, 5.99’’", "4 / 6 GB", "32 / 64 / 128",
-                "3.010 mAh Quick Charge 3.0", R.drawable.xiaomi
+                "3.010 mAh Quick Charge 3.0", R.drawable.iphonetablet
         ));
-        artefactos.add(new Artefacto("LG V35 ThinQ", 1599.00,
+        artefactos.add(new Artefacto("TABLET SAMSUNG", 1599.00,
                 "Snapdragon 845 octa-core", "Adreno 512",
                 16.0, "IPS, 6’’", "6 GB", "64",
-                "3.300 mAh", R.drawable.lg_v35_thinq
+                "3.300 mAh", R.drawable.samsungtable
         ));
         artefactos.add(new Artefacto("Xiaomi Redmi 6", 529.00,
                 "Helio P22 de ocho nucleos", "Adreno 512",
@@ -68,7 +68,7 @@ public class ResultadoTablet extends AppCompatActivity {
         ));
         RecyclerView artefactosList = (RecyclerView)findViewById(R.id.TabletList);
         artefactosList.setFocusable(false);
-       TabletCardItemAdapter adapter = new TabletCardItemAdapter(this,artefactos, dialog);
+        TabletCardItemAdapter adapter = new TabletCardItemAdapter(this,artefactos, dialog);
         artefactosList.setLayoutManager(new GridLayoutManager(this,2));
         artefactosList.setAdapter(adapter);
 

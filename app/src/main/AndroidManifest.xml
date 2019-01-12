@@ -11,8 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activities.MainActivity"></activity>
-        <activity android:name=".activities.RegisterActivity"></activity>
-        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.auth.RegisterActivity"></activity>
+        <activity android:name=".activities.auth.LoginActivity" />
         <activity android:name=".activities.Main2Activity" />
         <activity android:name=".activities.Home">
             <intent-filter>
@@ -26,14 +26,8 @@
 
         </activity>
 
-
-
         <activity android:name=".activities.ListCarrito">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

@@ -9,10 +9,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ScrollView;
 
 import com.example.gerson.app.R;
+import com.example.gerson.app.activities.auth.RegisterActivity;
 import com.example.gerson.app.adapters.ArtefactoCardItemAdapter;
 import com.example.gerson.app.models.Artefacto;
 
