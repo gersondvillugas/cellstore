@@ -2,6 +2,7 @@ package com.example.gerson.app.adapters;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -35,9 +36,9 @@ public class ArtefactoCarritoItemAdapter extends  RecyclerView.Adapter<Artefacto
 
     @Override
     public void onBindViewHolder(@NonNull ArtefactoCarritoItem artefactoCarritoItem, int i) {
-        artefactoCarritoItem.artefacto_titulo.setText(mData.get(i).getNombre());
-        artefactoCarritoItem.artefacto_precio.setText("S/ "+mData.get(i).getPrecio().toString());
-        artefactoCarritoItem.artefacto_img.setImageResource(mData.get(i).getId_img());
+        artefactoCarritoItem.artefactoTituloView.setText(mData.get(i).getNombre());
+        artefactoCarritoItem.artefactoPrecioView.setText("S/ "+mData.get(i).getPrecio().toString());
+        artefactoCarritoItem.artefactoImgView.setImageResource(mData.get(i).getId_img());
         artefactoCarritoItem.setData(mData, i);
     }
 
@@ -48,12 +49,17 @@ public class ArtefactoCarritoItemAdapter extends  RecyclerView.Adapter<Artefacto
 
     public static class ArtefactoCarritoItem extends RecyclerView.ViewHolder{
 
-        TextView artefacto_titulo;
-        TextView artefacto_precio;
-        ImageView artefacto_img;
-        ImageView artefacto_lupa_img;
+        ImageView artefactoImgView;
+        TextView artefactoTituloView;
+        TextView artefactoPrecioView;
+
+        TextView ventaCantidadView;
+        ImageView deleteView;
+
         private int key;
         private List<Artefacto> mData;
+
+
 
         public void setData(final List<Artefacto> mData, int  i) {
             this.mData = mData;
@@ -62,10 +68,11 @@ public class ArtefactoCarritoItemAdapter extends  RecyclerView.Adapter<Artefacto
 
         public ArtefactoCarritoItem(View view){
             super(view);
-            artefacto_img = (ImageView)itemView.findViewById(R.id.artefacto_img_id);
-            artefacto_titulo = (TextView)itemView.findViewById(R.id.artefacto_text_titulo_id);
-            artefacto_precio = (TextView)itemView.findViewById(R.id.artefacto_text_precio_id);
-            artefacto_lupa_img = (ImageView)itemView.findViewById(R.id.artefacto_lupa_icon_id);
+            artefactoImgView = (ImageView)itemView.findViewById(R.id.artefacto_img_id);
+            artefactoTituloView = (TextView)itemView.findViewById(R.id.artefacto_text_titulo_id);
+            artefactoPrecioView = (TextView)itemView.findViewById(R.id.artefacto_text_precio_id);
+            ventaCantidadView = (TextView)itemView.findViewById(R.id.artefacto_cantidad);
+            deleteView = (ImageView)itemView.findViewById(R.id.delete_id);
         }
     }
 }

@@ -37,9 +37,9 @@ public class ArtefactoCardItemAdapter extends RecyclerView.Adapter<ArtefactoCard
 
     @Override
     public void onBindViewHolder(@NonNull ArtefactoCardItem artefactoCardItem, int i) {
-        artefactoCardItem.artefacto_titulo.setText(mData.get(i).getNombre());
-        artefactoCardItem.artefacto_precio.setText("S/ "+mData.get(i).getPrecio().toString());
-        artefactoCardItem.artefacto_img.setImageResource(mData.get(i).getId_img());
+        artefactoCardItem.artefactoTituloView.setText(mData.get(i).getNombre());
+        artefactoCardItem.artefactoPrecioView.setText("S/ "+mData.get(i).getPrecio().toString());
+        artefactoCardItem.artefactoImageView.setImageResource(mData.get(i).getId_img());
         artefactoCardItem.setData(mData, i);
     }
 
@@ -50,19 +50,21 @@ public class ArtefactoCardItemAdapter extends RecyclerView.Adapter<ArtefactoCard
 
     public static class ArtefactoCardItem extends RecyclerView.ViewHolder{
 
-        TextView artefacto_titulo;
-        TextView artefacto_precio;
-        ImageView artefacto_img;
-        ImageView artefacto_lupa_img;
+        TextView artefactoTituloView;
+        TextView artefactoPrecioView;
+        ImageView artefactoImageView;
+        ImageView lupaView;
+        ImageView ventaDardoView;
 
         private Dialog dialog;
         private int key;
         private List<Artefacto> mData;
+        private boolean agregadoAlCarro;
 
         public void setData(final List<Artefacto> mData, int  i) {
             this.mData = mData;
             this.key = i;
-            artefacto_lupa_img.setOnClickListener(new View.OnClickListener(){
+            lupaView.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View view){
 
                     TextView nombre = (TextView)dialog.findViewById(R.id.artefacto_nombre);
@@ -95,6 +97,20 @@ public class ArtefactoCardItemAdapter extends RecyclerView.Adapter<ArtefactoCard
 
                 }
             });
+            ventaDardoView.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View view){
+                    /*
+                    * Agregar codigo de agregar producto a carrito
+                    * ... carrito sera un arraylista vacio el cual se ira llenando a medida q la persona solicita mas productos
+                    * */
+                    agregadoAlCarro = !agregadoAlCarro;
+                    if(!agregadoAlCarro){
+                        ventaDardoView.setImageResource(R.drawable.dardo_pinchado);
+                    }else {
+                        ventaDardoView.setImageResource(R.drawable.dardo);
+                    }
+                }
+            });
         }
 
         public ArtefactoCardItem(View view, final Dialog dialog){
@@ -102,12 +118,12 @@ public class ArtefactoCardItemAdapter extends RecyclerView.Adapter<ArtefactoCard
             this.dialog = dialog;
             this.mData = mData;
 
-            artefacto_img = (ImageView)itemView.findViewById(R.id.artefacto_img_id);
-            artefacto_titulo = (TextView)itemView.findViewById(R.id.artefacto_text_titulo_id);
-            artefacto_precio = (TextView)itemView.findViewById(R.id.artefacto_text_precio_id);
-            artefacto_lupa_img = (ImageView)itemView.findViewById(R.id.artefacto_lupa_icon_id);
-
-
+            artefactoImageView = (ImageView)itemView.findViewById(R.id.artefacto_img_id);
+            artefactoTituloView = (TextView)itemView.findViewById(R.id.artefacto_text_titulo_id);
+            artefactoPrecioView = (TextView)itemView.findViewById(R.id.artefacto_text_precio_id);
+            lupaView = (ImageView)itemView.findViewById(R.id.artefacto_lupa_icon_id);
+            ventaDardoView = (ImageView) itemView.findViewById(R.id.artefacto_img_dardo);
+            agregadoAlCarro = false;
         }
     }
 }
