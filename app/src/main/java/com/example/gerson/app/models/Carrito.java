@@ -32,5 +32,10 @@ public class Carrito {
     public void addArtefacto(Artefacto artefacto){
         this.carrito.add(artefacto);
     }
+    public void removeArtefacto(Artefacto artefacto){
 
+    }
+    public void vaciarCarrito(){
+        this.carrito = new ArrayList<>();
+    }
 }

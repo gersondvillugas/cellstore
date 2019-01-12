@@ -77,6 +77,9 @@
             android:background="#FFFFFF"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            tools:layoutManager="android.support.v7.widget.GridLayoutManager"
+            tools:spanCount="2"
+            tools:listitem="@layout/mycard_item"
             />
     </LinearLayout>
 </ScrollView>
