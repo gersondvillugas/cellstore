@@ -1,6 +1,7 @@
 package com.example.gerson.app.activities;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -8,8 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.example.gerson.app.R;
 import com.example.gerson.app.adapters.ArtefactoCardItemAdapter;
@@ -23,10 +26,23 @@ public class ResultadoBusqueda extends AppCompatActivity {
     private Dialog dialog;
     private LinearLayout carrito;
     private Toolbar toolbar;
+
+    private TextView resultadosView;
+    private LinearLayout filtroView;
+    private LinearLayout carritoView;
+    private ImageView carritoImageView;
+    private TextView carritoTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultado_busqueda);
+
+        resultadosView = findViewById(R.id.resultados_id);
+        filtroView = findViewById(R.id.filtro_id);
+        carritoView = findViewById(R.id.carrito_id);
+        carritoImageView = findViewById(R.id.carrito_img_id);
+        carritoTextView = findViewById(R.id.carrito_text_id);
 
         toolbar = (Toolbar)findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
@@ -76,5 +92,10 @@ public class ResultadoBusqueda extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.my_menu,menu);
         return true;
+    }
+
+    public void onClickCarrito(View view){
+        Intent intent = new Intent(this, ListCarrito.class);
+        startActivity(intent);
     }
 }

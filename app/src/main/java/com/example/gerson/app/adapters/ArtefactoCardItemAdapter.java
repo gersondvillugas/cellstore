@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.gerson.app.R;
 import com.example.gerson.app.models.Artefacto;
+import com.example.gerson.app.models.Carrito;
 
 import java.util.List;
 
@@ -99,12 +100,10 @@ public class ArtefactoCardItemAdapter extends RecyclerView.Adapter<ArtefactoCard
             });
             ventaDardoView.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View view){
-                    /*
-                    * Agregar codigo de agregar producto a carrito
-                    * ... carrito sera un arraylista vacio el cual se ira llenando a medida q la persona solicita mas productos
-                    * */
+                    Carrito carrito = Carrito.getInstance();
+                    carrito.addArtefacto(mData.get(key));
                     agregadoAlCarro = !agregadoAlCarro;
-                    if(!agregadoAlCarro){
+                    if(agregadoAlCarro){
                         ventaDardoView.setImageResource(R.drawable.dardo_pinchado);
                     }else {
                         ventaDardoView.setImageResource(R.drawable.dardo);
