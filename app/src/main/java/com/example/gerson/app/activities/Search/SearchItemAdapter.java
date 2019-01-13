@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.gerson.app.R;
+import com.example.gerson.app.activities.ContainerArtefactos;
 import com.example.gerson.app.models.Carrito;
 import com.example.gerson.app.models.artefacto.Artefacto;
 
@@ -37,9 +38,9 @@ public class SearchItemAdapter extends RecyclerView.Adapter<SearchItemAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        Search search = (Search)context;
+        ContainerArtefactos search = (ContainerArtefactos) context;
         viewHolder.setArtefacto(artefactos.get(i));
-        search.searchHolders.add(viewHolder);
+        search.addViewHolders(viewHolder);
 
         viewHolder.getItemTituloView().setText(artefactos.get(i).getNombre());
         viewHolder.getItemPrecioView().setText("S/ "+artefactos.get(i).getPrecio().toString());
@@ -53,7 +54,7 @@ public class SearchItemAdapter extends RecyclerView.Adapter<SearchItemAdapter.Vi
         return artefactos.size();
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder{
 
         private ImageView itemImageView;
         private TextView itemPrecioView;

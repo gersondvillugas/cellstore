@@ -7,14 +7,13 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.gerson.app.R;
+import com.example.gerson.app.activities.ContainerArtefactos;
 import com.example.gerson.app.activities.ListCarrito;
 import com.example.gerson.app.models.Carrito;
 import com.example.gerson.app.models.artefacto.Artefacto;
@@ -23,7 +22,9 @@ import com.example.gerson.app.models.artefacto.Celular;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Search extends AppCompatActivity  implements OnClickSearchItemListener{
+public class Search extends AppCompatActivity  implements
+        OnClickSearchItemListener,
+        ContainerArtefactos {
 
     private TextView resultadosView;
     private LinearLayout filtroView;
@@ -39,8 +40,7 @@ public class Search extends AppCompatActivity  implements OnClickSearchItemListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(toolbar);
+        configToolbar();
 
         bindView();
 
@@ -61,6 +61,18 @@ public class Search extends AppCompatActivity  implements OnClickSearchItemListe
         artefactosList.setAdapter(adapter);
         artefactosList.setFocusable(false);
 
+    }
+
+    private void configToolbar(){
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitle("Busqueda");
+        toolbar.setNavigationIcon(R.drawable.ic_backspace_24dp);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                finish();
+            }
+        });
     }
 
     private void bindView(){
@@ -118,7 +130,6 @@ public class Search extends AppCompatActivity  implements OnClickSearchItemListe
         List<Artefacto> carrito = Carrito.getInstance().getCarrito();
         for(SearchItemAdapter.ViewHolder viewHolder: searchHolders){
             Artefacto artefacto = viewHolder.getArtefacto();
-            // Log.i("_id",String.valueOf((int) artefacto.get_id()));
             viewHolder.setAgregadoAlCarro(carrito.indexOf(artefacto)!=-1);
             viewHolder.updateDardoImage();
         }
@@ -149,4 +160,8 @@ public class Search extends AppCompatActivity  implements OnClickSearchItemListe
         startActivity(intent);
     }
 
+    @Override
+    public void addViewHolders(SearchItemAdapter.ViewHolder viewHolder) {
+        searchHolders.add(viewHolder);
+    }
 }
