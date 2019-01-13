@@ -32,6 +32,7 @@ public class Search extends AppCompatActivity  implements OnClickSearchItemListe
     private Dialog dialog;
 
     List<Artefacto> artefactos;
+    List<SearchItemAdapter.ViewHolder> searchHolders;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,8 @@ public class Search extends AppCompatActivity  implements OnClickSearchItemListe
         bindView();
 
         dialog = new Dialog(this);
+
+        searchHolders = new ArrayList<>();
 
         generarData();
 
@@ -109,6 +112,19 @@ public class Search extends AppCompatActivity  implements OnClickSearchItemListe
                         4200));
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        List<Artefacto> carrito = Carrito.getInstance().getCarrito();
+        for(SearchItemAdapter.ViewHolder viewHolder: searchHolders){
+            Artefacto artefacto = viewHolder.getArtefacto();
+            // Log.i("_id",String.valueOf((int) artefacto.get_id()));
+            viewHolder.setAgregadoAlCarro(carrito.indexOf(artefacto)!=-1);
+            viewHolder.updateDardoImage();
+        }
+        this.onClickItemDardo(null);
+
+    }
 
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.my_menu,menu);

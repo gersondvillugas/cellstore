@@ -32,11 +32,15 @@ public class SearchItemAdapter extends RecyclerView.Adapter<SearchItemAdapter.Vi
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.activity_search_item, viewGroup, false);
-        return new ViewHolder(view);
+        return  new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+        Search search = (Search)context;
+        viewHolder.setArtefacto(artefactos.get(i));
+        search.searchHolders.add(viewHolder);
+
         viewHolder.getItemTituloView().setText(artefactos.get(i).getNombre());
         viewHolder.getItemPrecioView().setText("S/ "+artefactos.get(i).getPrecio().toString());
         Glide.with(context).load(artefactos.get(i).getUrlImg()).into(viewHolder.getItemImageView());
@@ -58,6 +62,9 @@ public class SearchItemAdapter extends RecyclerView.Adapter<SearchItemAdapter.Vi
         private ImageView itemDardoView;
 
         private Boolean agregadoAlCarro;
+        private Artefacto artefacto;
+
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -78,19 +85,47 @@ public class SearchItemAdapter extends RecyclerView.Adapter<SearchItemAdapter.Vi
             });
             itemDardoView.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View view){
-                    Carrito carrito = Carrito.getInstance();
-                    agregadoAlCarro = !agregadoAlCarro;
-                    if(agregadoAlCarro){
-                        carrito.addArtefacto(artefacto);
-                        itemDardoView.setImageResource(R.drawable.dardo_pinchado);
-                    }else {
-                        carrito.removeArtefacto(artefacto);
-                        itemDardoView.setImageResource(R.drawable.dardo);
-                    }
 
+                    agregadoAlCarro = !agregadoAlCarro;
+                    updateDardoImage(artefacto);
                     listener.onClickItemDardo(artefacto);
                 }
             });
+        }
+
+        public void updateDardoImage(){
+            if(agregadoAlCarro){
+                itemDardoView.setImageResource(R.drawable.dardo_pinchado);
+            }else {
+                itemDardoView.setImageResource(R.drawable.dardo);
+            }
+        }
+        public void updateDardoImage(Artefacto artefacto){
+            Carrito carrito = Carrito.getInstance();
+            if(agregadoAlCarro){
+                carrito.addArtefacto(artefacto);
+                itemDardoView.setImageResource(R.drawable.dardo_pinchado);
+            }else {
+                carrito.removeArtefacto(artefacto);
+                itemDardoView.setImageResource(R.drawable.dardo);
+            }
+
+        }
+
+        public Artefacto getArtefacto() {
+            return artefacto;
+        }
+
+        public void setArtefacto(Artefacto artefacto) {
+            this.artefacto = artefacto;
+        }
+
+        public Boolean getAgregadoAlCarro() {
+            return agregadoAlCarro;
+        }
+
+        public void setAgregadoAlCarro(Boolean agregadoAlCarro) {
+            this.agregadoAlCarro = agregadoAlCarro;
         }
 
         public ImageView getItemImageView() {
