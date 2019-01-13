@@ -18,6 +18,8 @@ import com.example.gerson.app.activities.ListCarrito;
 import com.example.gerson.app.models.Carrito;
 import com.example.gerson.app.models.artefacto.Artefacto;
 import com.example.gerson.app.models.artefacto.Celular;
+import com.example.gerson.app.models.artefacto.Tablet;
+import com.example.gerson.app.models.artefacto.agregados.Marca;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,6 +89,7 @@ public class Search extends AppCompatActivity  implements
                 "HUAWEI MATE 20 PRO",
                 "https://latienda.pe/7160-large_default/huawei-mate-20-pro.jpg",
                 2999.0,
+                Marca.HUAWEII,
                 "Kirin 980 octa-core",
                 "Snapdragon",
                 "OLED QHD+ de 6.39",
@@ -94,12 +97,35 @@ public class Search extends AppCompatActivity  implements
                 4200));
         artefactos.add(
                 new Celular(
-                        "HUAWEI MATE 20 PRO",
-                        "https://latienda.pe/7160-large_default/huawei-mate-20-pro.jpg",
-                        2999.0,
+                        "HUAWEI MATE 20 LITE",
+                        "https://latienda.pe/6635-large_default/huawei-mate-20-lite.jpg",
+                        979.90,
+                        Marca.HUAWEII,
+                        "Kirin 710 octa-core",
+                        "Snapdragon",
+                        "Full HD+ de 6.3''",
+                        128,
+                        3750));
+        artefactos.add(
+                new Celular(
+                        "HUAWEI P20 DÚOS",
+                        "https://latienda.pe/4793-large_default/huawei-p20-duos.jpg",
+                        1749.90,
+                        Marca.HUAWEII,
+                        "Kirin 970 octa-core",
+                        "Snapdragon",
+                        "5.8''",
+                        128,
+                        4200));
+        artefactos.add(
+                new Tablet(
+                        "IPHONE 8",
+                        "https://latienda.pe/5049-large_default/iphone-8.jpg",
+                        2249.90,
+                        Marca.IPHONE,
                         "Kirin 980 octa-core",
                         "Snapdragon",
-                        "OLED QHD+ de 6.39",
+                        "4.7'' Retina HD",
                         128,
                         4200));
         artefactos.add(
@@ -107,6 +133,7 @@ public class Search extends AppCompatActivity  implements
                         "HUAWEI MATE 20 PRO",
                         "https://latienda.pe/7160-large_default/huawei-mate-20-pro.jpg",
                         2999.0,
+                        Marca.HUAWEII,
                         "Kirin 980 octa-core",
                         "Snapdragon",
                         "OLED QHD+ de 6.39",
@@ -114,12 +141,34 @@ public class Search extends AppCompatActivity  implements
                         4200));
         artefactos.add(
                 new Celular(
-                        "HUAWEI MATE 20 PRO",
-                        "https://latienda.pe/7160-large_default/huawei-mate-20-pro.jpg",
-                        2999.0,
+                        "HUAWEI MATE 20 LITE",
+                        "https://latienda.pe/6635-large_default/huawei-mate-20-lite.jpg",
+                        979.90,
+                        "Kirin 710 octa-core",
+                        "Snapdragon",
+                        "Full HD+ de 6.3''",
+                        128,
+                        3750));
+        artefactos.add(
+                new Celular(
+                        "HUAWEI P20 DÚOS",
+                        "https://latienda.pe/4793-large_default/huawei-p20-duos.jpg",
+                        1749.90,
+                        Marca.HUAWEII,
+                        "Kirin 970 octa-core",
+                        "Snapdragon",
+                        "5.8''",
+                        128,
+                        4200));
+        artefactos.add(
+                new Tablet(
+                        "IPHONE 8",
+                        "https://latienda.pe/5049-large_default/iphone-8.jpg",
+                        2249.90,
+                        Marca.IPHONE,
                         "Kirin 980 octa-core",
                         "Snapdragon",
-                        "OLED QHD+ de 6.39",
+                        "4.7'' Retina HD",
                         128,
                         4200));
     }
