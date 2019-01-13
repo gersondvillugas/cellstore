@@ -6,18 +6,30 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.gerson.app.R;
+import com.example.gerson.app.models.artefacto.agregados.Camara;
+import com.example.gerson.app.models.artefacto.agregados.Color;
+import com.example.gerson.app.models.artefacto.agregados.Ram;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Accesorio extends Artefacto {
     public Accesorio(String nombre, String urlImg, Double precio) {
         super(nombre, urlImg, precio);
     }
+
+
     public void configDialog(Dialog dialog){
-        TextView nombreView = (TextView)dialog.findViewById(R.id.artefacto_nombre);
-        TextView precioView = (TextView)dialog.findViewById(R.id.artefacto_precio);
-        ImageView imgView = (ImageView)dialog.findViewById(R.id.artefacto_img);
-        TextView cantidadView = (TextView)dialog.findViewById(R.id.artefacto_cantidad);
+        dialog.setContentView(R.layout.accesorios_detalles);
+
+        TextView nombreView = (TextView)dialog.findViewById(R.id.acessorio_nombre);
+
+        TextView precioView = (TextView)dialog.findViewById(R.id.acessorio_precio);
+        ImageView imgView = (ImageView)dialog.findViewById(R.id.accesorio_img);
+        TextView cantidadView = (TextView)dialog.findViewById(R.id.acessorio_cantidad);
 
         nombreView.setText( nombre);
+
         precioView.setText(     String.format("S/ %.2f",precio));
         Glide.with(dialog.getContext()).load(urlImg).into(imgView);
         cantidadView.setText("2");

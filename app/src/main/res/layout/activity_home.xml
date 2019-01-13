@@ -153,6 +153,7 @@
                     <ImageView
                         android:layout_width="52dp"
                         android:layout_height="52dp"
+                        android:onClick="listaccesorios"
                         android:foreground="?android:attr/selectableItemBackground"
                         android:src="@drawable/accesorios"/>
                     <TextView

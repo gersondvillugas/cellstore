@@ -148,6 +148,11 @@ public class Home extends AppCompatActivity implements
         Intent i=new Intent(Home.this,Search.class);
         startActivity(i);
     }
+    public void listaccesorios(View view) {
+        Intent i=new Intent(Home.this,Search.class);
+        startActivity(i);
+    }
+
     /*public  boolean onNavigationItenSelected(MenuItem item){
 
 
