@@ -1,8 +1,6 @@
 package com.example.gerson.app.adapters;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,9 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.gerson.app.R;
-import com.example.gerson.app.models.Artefacto;
 import com.example.gerson.app.models.Carrito;
+import com.example.gerson.app.models.artefacto.Artefacto;
 
 import java.util.List;
 
@@ -39,7 +38,7 @@ public class ArtefactoCarritoItemAdapter extends  RecyclerView.Adapter<Artefacto
     public void onBindViewHolder(@NonNull final ArtefactoCarritoItem artefactoCarritoItem, int i) {
         artefactoCarritoItem.artefactoTituloView.setText(mData.get(i).getNombre());
         artefactoCarritoItem.artefactoPrecioView.setText("S/ "+mData.get(i).getPrecio().toString());
-        artefactoCarritoItem.artefactoImgView.setImageResource(mData.get(i).getId_img());
+        Glide.with(mContext).load(mData.get(i).getUrlImg()).into(artefactoCarritoItem.artefactoImgView);
         artefactoCarritoItem.setData(mData, i);
         artefactoCarritoItem.deleteView.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){

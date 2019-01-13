@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/scroll"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,11 +9,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <include layout="@layout/toolbar"/>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@drawable/header_artefact_list"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             >
@@ -56,18 +56,18 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:layout_weight="1">
-                    <include layout="@layout/carrito_icon_letras"/>
+                    <include layout="@layout/activity_search_carrito_icon_letras"/>
                 </LinearLayout>
             </LinearLayout>
         </RelativeLayout>
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/ArtefactosList"
+            android:id="@+id/list_id"
             android:background="#FFFFFF"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             tools:layoutManager="android.support.v7.widget.GridLayoutManager"
             tools:spanCount="2"
-            tools:listitem="@layout/mycard_item"
+            tools:listitem="@layout/activity_search_item"
             />
     </LinearLayout>
 </ScrollView>

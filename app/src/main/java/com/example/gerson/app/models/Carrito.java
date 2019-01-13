@@ -1,5 +1,6 @@
 package com.example.gerson.app.models;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -7,7 +8,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.gerson.app.R;
-import com.example.gerson.app.activities.ResultadoBusqueda;
+import com.example.gerson.app.models.artefacto.Artefacto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,20 +48,20 @@ public class Carrito {
     public void vaciarCarrito(){
         this.carrito = new ArrayList<>();
     }
-    public void carritoFeedBack(ResultadoBusqueda context){
+    public View getCarritoViewContent(Context context){
         LayoutInflater inflater = LayoutInflater.from(context);
         View content;
 
         int size = Carrito.getInstance().getCarrito().size();
 
         if(size > 0){
-            content = (RelativeLayout)inflater.inflate(R.layout.carrito_icon_number,null);
+            content = (RelativeLayout)inflater.inflate(R.layout.activity_search_carrito_icon_number,null);
             TextView carritoText = (TextView)content.findViewById(R.id.carrito_text_id);
             carritoText.setText(String.valueOf(size));
         }else{
-            content = (LinearLayout)inflater.inflate(R.layout.carrito_icon_letras,null);
+            content = (LinearLayout)inflater.inflate(R.layout.activity_search_carrito_icon_letras,null);
         }
-        context.getCarritoView().removeAllViews();
-        context.getCarritoView().addView(content);
+        return content;
+
     }
 }

@@ -5,18 +5,13 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 
 import com.example.gerson.app.R;
-import com.example.gerson.app.adapters.ArtefactoCardItemAdapter;
 import com.example.gerson.app.adapters.ArtefactoCarritoItemAdapter;
-import com.example.gerson.app.models.Artefacto;
 import com.example.gerson.app.models.Carrito;
+import com.example.gerson.app.models.artefacto.Artefacto;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListCarrito extends AppCompatActivity {
