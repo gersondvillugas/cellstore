@@ -18,6 +18,7 @@
         app:headerLayout="@layout/drawer_header"
         app:itemHorizontalPadding="20dp"
         app:menu="@menu/drawer_menu"
+
         >
 
     </android.support.design.widget.NavigationView>

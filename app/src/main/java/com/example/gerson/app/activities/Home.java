@@ -43,7 +43,9 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.setDrawerListener(toggle);
+
         toggle.syncState();
+
         navigationView=(NavigationView)findViewById(R.id.navigationId);
         navigationView.setNavigationItemSelectedListener(this);
         liscel=(Button)findViewById(R.id.idis);
@@ -160,7 +162,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             super.onBackPressed();
         }
     }
-
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         //here is the main place where we need to work on.
