@@ -19,6 +19,7 @@ import com.example.gerson.app.R;
 import com.example.gerson.app.activities.Search.OnClickSearchItemListener;
 import com.example.gerson.app.activities.Search.Search;
 import com.example.gerson.app.activities.Search.SearchItemAdapter;
+import com.example.gerson.app.activities.auth.LoginActivity;
 import com.example.gerson.app.activities.auth.RegisterActivity;
 import com.example.gerson.app.models.artefacto.Artefacto;
 import com.example.gerson.app.models.artefacto.Celular;
@@ -26,7 +27,10 @@ import com.example.gerson.app.models.artefacto.Celular;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, OnClickSearchItemListener {
+public class Home extends AppCompatActivity implements
+        NavigationView.OnNavigationItemSelectedListener,
+        OnClickSearchItemListener,
+        ContainerArtefactos {
     public List<Artefacto> artefactos;
     private Toolbar toolbar;
     private Button liscel;
@@ -48,11 +52,12 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
         navigationView=(NavigationView)findViewById(R.id.navigationId);
         navigationView.setNavigationItemSelectedListener(this);
+
         liscel=(Button)findViewById(R.id.idis);
         liscel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Home.this,RegisterActivity.class);
+                Intent i=new Intent(Home.this,LoginActivity.class);
                 startActivity(i); }
         });
 
@@ -148,8 +153,9 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
     }*/
     private  void setToolbar(){
-        Toolbar toolbar=(Toolbar)findViewById(R.id.my_toolbar);
+        toolbar=(Toolbar)findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
+
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -200,6 +206,11 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
     @Override
     public void onClickItemDardo(Artefacto artefacto) {
+
+    }
+
+    @Override
+    public void addViewHolders(SearchItemAdapter.ViewHolder viewHolder) {
 
     }
 }
