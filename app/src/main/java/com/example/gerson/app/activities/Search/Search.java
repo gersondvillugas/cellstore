@@ -65,9 +65,9 @@ public class Search extends AppCompatActivity  implements
 
     private void configToolbar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(toolbar);
         toolbar.setTitle("Busqueda");
         toolbar.setNavigationIcon(R.drawable.ic_backspace_24dp);
+        setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 finish();

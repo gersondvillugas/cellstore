@@ -96,6 +96,7 @@
                 android:id="@+id/login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="onClickTengoCuenta"
                 android:textSize="10sp"
                 android:textColor="@color/colorPrimary"
                 android:text="Iniciar Sesion" />
