@@ -19,6 +19,7 @@ import com.example.gerson.app.R;
 import com.example.gerson.app.activities.Search.OnClickSearchItemListener;
 import com.example.gerson.app.activities.Search.Search;
 import com.example.gerson.app.activities.Search.SearchItemAdapter;
+import com.example.gerson.app.activities.auth.LoginActivity;
 import com.example.gerson.app.activities.auth.RegisterActivity;
 import com.example.gerson.app.models.artefacto.Artefacto;
 import com.example.gerson.app.models.artefacto.Celular;
@@ -49,11 +50,12 @@ public class Home extends AppCompatActivity implements
         toggle.syncState();
         navigationView=(NavigationView)findViewById(R.id.navigationId);
         navigationView.setNavigationItemSelectedListener(this);
+
         liscel=(Button)findViewById(R.id.idis);
         liscel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Home.this,RegisterActivity.class);
+                Intent i=new Intent(Home.this,LoginActivity.class);
                 startActivity(i); }
         });
 
