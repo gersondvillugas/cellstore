@@ -14,6 +14,7 @@
             android:id="@+id/list_artefactos"
             android:background="#FFFFFF"
             android:layout_width="match_parent"
+            tools:listitem="@layout/artefacto_carrito_item"
             android:layout_height="wrap_content">
         </android.support.v7.widget.RecyclerView>
     </LinearLayout>

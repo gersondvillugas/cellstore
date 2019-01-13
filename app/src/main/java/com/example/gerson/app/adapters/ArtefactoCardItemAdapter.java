@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.gerson.app.R;
+import com.example.gerson.app.activities.ResultadoBusqueda;
 import com.example.gerson.app.models.Artefacto;
 import com.example.gerson.app.models.Carrito;
 
@@ -41,7 +42,7 @@ public class ArtefactoCardItemAdapter extends RecyclerView.Adapter<ArtefactoCard
         artefactoCardItem.artefactoTituloView.setText(mData.get(i).getNombre());
         artefactoCardItem.artefactoPrecioView.setText("S/ "+mData.get(i).getPrecio().toString());
         artefactoCardItem.artefactoImageView.setImageResource(mData.get(i).getId_img());
-        artefactoCardItem.setData(mData, i);
+        artefactoCardItem.setData(mData, i, mContext);
     }
 
     @Override
@@ -59,12 +60,14 @@ public class ArtefactoCardItemAdapter extends RecyclerView.Adapter<ArtefactoCard
 
         private Dialog dialog;
         private int key;
+        private ResultadoBusqueda mContext;
         private List<Artefacto> mData;
         private boolean agregadoAlCarro;
 
-        public void setData(final List<Artefacto> mData, int  i) {
+        public void setData(final List<Artefacto> mData, int  i, Context context) {
             this.mData = mData;
             this.key = i;
+            this.mContext = (ResultadoBusqueda)context;
             lupaView.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View view){
 
@@ -101,13 +104,15 @@ public class ArtefactoCardItemAdapter extends RecyclerView.Adapter<ArtefactoCard
             ventaDardoView.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View view){
                     Carrito carrito = Carrito.getInstance();
-                    carrito.addArtefacto(mData.get(key));
                     agregadoAlCarro = !agregadoAlCarro;
                     if(agregadoAlCarro){
+                        carrito.addArtefacto(mData.get(key));
                         ventaDardoView.setImageResource(R.drawable.dardo_pinchado);
                     }else {
+                        carrito.removeArtefacto(mData.get(key));
                         ventaDardoView.setImageResource(R.drawable.dardo);
                     }
+                    Carrito.getInstance().carritoFeedBack(mContext);
                 }
             });
         }

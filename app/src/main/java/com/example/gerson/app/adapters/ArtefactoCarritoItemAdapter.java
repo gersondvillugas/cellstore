@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.gerson.app.R;
 import com.example.gerson.app.models.Artefacto;
+import com.example.gerson.app.models.Carrito;
 
 import java.util.List;
 
@@ -35,11 +36,19 @@ public class ArtefactoCarritoItemAdapter extends  RecyclerView.Adapter<Artefacto
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ArtefactoCarritoItem artefactoCarritoItem, int i) {
+    public void onBindViewHolder(@NonNull final ArtefactoCarritoItem artefactoCarritoItem, int i) {
         artefactoCarritoItem.artefactoTituloView.setText(mData.get(i).getNombre());
         artefactoCarritoItem.artefactoPrecioView.setText("S/ "+mData.get(i).getPrecio().toString());
         artefactoCarritoItem.artefactoImgView.setImageResource(mData.get(i).getId_img());
         artefactoCarritoItem.setData(mData, i);
+        artefactoCarritoItem.deleteView.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                int key = artefactoCarritoItem.key;
+                Carrito carrito = Carrito.getInstance();
+                carrito.removeArtefacto(mData.get(key));
+                notifyDataSetChanged();
+            }
+        });
     }
 
     @Override
@@ -64,6 +73,7 @@ public class ArtefactoCarritoItemAdapter extends  RecyclerView.Adapter<Artefacto
         public void setData(final List<Artefacto> mData, int  i) {
             this.mData = mData;
             this.key = i;
+
         }
 
         public ArtefactoCarritoItem(View view){
@@ -73,6 +83,7 @@ public class ArtefactoCarritoItemAdapter extends  RecyclerView.Adapter<Artefacto
             artefactoPrecioView = (TextView)itemView.findViewById(R.id.artefacto_text_precio_id);
             ventaCantidadView = (TextView)itemView.findViewById(R.id.artefacto_cantidad);
             deleteView = (ImageView)itemView.findViewById(R.id.delete_id);
+
         }
     }
 }
