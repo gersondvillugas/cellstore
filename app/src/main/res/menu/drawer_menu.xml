@@ -5,18 +5,29 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/inicioMenuId"
+            android:icon="@android:drawable/ic_dialog_email"
             android:title="INICIO"/>
         <item
+
             android:id="@+id/ofertaMenuId"
+            android:icon="@android:drawable/ic_dialog_email"
+
+
             android:title="OFERTAS"/>
         <item
             android:id="@+id/historialMenuId"
+            android:icon="@android:drawable/ic_dialog_email"
+
             android:title="HISTORIAL"/>
         <item
             android:id="@+id/miCuentaMenuId"
+            android:icon="@android:drawable/ic_dialog_email"
+
             android:title="MI CUENTA"/>
         <item
             android:id="@+id/contactenosMenuId"
+            android:icon="@android:drawable/ic_dialog_info"
+
             android:title="CONTACTENOS"/>
     </group>
 </menu>

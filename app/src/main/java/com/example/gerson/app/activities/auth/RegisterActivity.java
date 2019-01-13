@@ -1,8 +1,11 @@
 package com.example.gerson.app.activities.auth;
 
 import android.content.Intent;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +21,7 @@ public class RegisterActivity extends AppCompatActivity {
     TextView b2;
     Button b1;
     DatabaseHelper db;
+
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,4 +72,5 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
+
 }
