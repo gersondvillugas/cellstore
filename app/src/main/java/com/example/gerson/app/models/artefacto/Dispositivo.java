@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide;
 import com.example.gerson.app.R;
 import com.example.gerson.app.models.artefacto.agregados.Camara;
 import com.example.gerson.app.models.artefacto.agregados.Color;
+import com.example.gerson.app.models.artefacto.agregados.Marca;
 import com.example.gerson.app.models.artefacto.agregados.Ram;
 
 import java.util.ArrayList;
@@ -19,6 +20,16 @@ public class Dispositivo extends Artefacto {
     protected String pantalla;
     protected int capacidad;
     protected int bateria;
+
+    public Dispositivo(String nombre, String urlImg, Double precio, String marca, String procesador,
+                       String gpu, String pantalla, int capacidad, int bateria) {
+        super(nombre, urlImg, precio, marca);
+        this.procesador = procesador;
+        this.gpu = gpu;
+        this.pantalla = pantalla;
+        this.capacidad = capacidad;
+        this.bateria = bateria;
+    }
 
     public Dispositivo(String nombre, String urlImg, Double precio, String procesador,
                        String gpu, String pantalla, int capacidad, int bateria) {

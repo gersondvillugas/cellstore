@@ -6,11 +6,17 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.gerson.app.R;
+import com.example.gerson.app.models.artefacto.agregados.Marca;
 
 public class Accesorio extends Artefacto {
     public Accesorio(String nombre, String urlImg, Double precio) {
         super(nombre, urlImg, precio);
     }
+
+    public Accesorio(String nombre, String urlImg, Double precio, String marca) {
+        super(nombre, urlImg, precio, marca);
+    }
+
     public void configDialog(Dialog dialog){
         TextView nombreView = (TextView)dialog.findViewById(R.id.artefacto_nombre);
         TextView precioView = (TextView)dialog.findViewById(R.id.artefacto_precio);

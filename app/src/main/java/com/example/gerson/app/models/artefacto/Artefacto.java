@@ -3,6 +3,8 @@ package com.example.gerson.app.models.artefacto;
 import android.app.Dialog;
 import android.content.Context;
 
+import com.example.gerson.app.models.artefacto.agregados.Marca;
+
 public class Artefacto {
 
     public static int count = 0;
@@ -11,7 +13,7 @@ public class Artefacto {
     protected String nombre;
     protected String urlImg;
     protected Double precio;
-    protected String descripcion;
+    protected String marca;
 
     public void configDialog(Dialog dialog){}
 
@@ -47,20 +49,11 @@ public class Artefacto {
         this.precio = precio;
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public Artefacto(String nombre, String urlImg, Double precio, String descripcion) {
+    public Artefacto(String nombre, String urlImg, Double precio, String marca) {
         this.nombre = nombre;
         this.urlImg = urlImg;
         this.precio = precio;
-        this.descripcion = descripcion;
-        this._id = Artefacto.count++;
+        this.marca = marca;
     }
 
     public Artefacto(String nombre, String urlImg, Double precio) {

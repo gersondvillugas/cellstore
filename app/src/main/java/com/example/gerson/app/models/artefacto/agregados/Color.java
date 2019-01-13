@@ -4,8 +4,8 @@ public class Color {
 
     private static long count = 0;
 
-    private long _id;
-    private String nombre;
+    protected long _id;
+    protected String nombre;
 
     public Color(String nombre) {
         this.nombre = nombre;
