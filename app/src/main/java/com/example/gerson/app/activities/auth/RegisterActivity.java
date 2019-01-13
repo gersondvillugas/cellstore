@@ -72,5 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
-
+    public void onClickTengoCuenta(View view){
+        startActivity(new Intent(this,LoginActivity.class));
+    }
 }
