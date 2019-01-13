@@ -30,7 +30,6 @@ import java.util.List;
 public class ResultadoBusqueda extends AppCompatActivity {
     public List<Artefacto> artefactos;
     private Dialog dialog;
-    private LinearLayout carrito;
     private Toolbar toolbar;
 
     private TextView resultadosView;
@@ -44,20 +43,31 @@ public class ResultadoBusqueda extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultado_busqueda);
 
+        bindView();
+
+        toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(toolbar);
+
+        configDialog();
+
+        artefactos = generarData();
+
+        configRecycler();
+
+        resultadosView.setText("Resultados: " + artefactos.size());
+        Carrito.getInstance().carritoFeedBack(this);
+    }
+
+    private void bindView(){
         resultadosView = findViewById(R.id.resultados_id);
         filtroView = findViewById(R.id.filtro_id);
         carritoView = findViewById(R.id.carrito_id);
         carritoImageView = findViewById(R.id.carrito_img_id);
         carritoTextView = findViewById(R.id.carrito_text_id);
 
-        toolbar = (Toolbar)findViewById(R.id.my_toolbar);
-        setSupportActionBar(toolbar);
-
-        dialog = new Dialog(this);
-        dialog.setContentView(R.layout.artefacto_detalles);
-        carrito = (LinearLayout)findViewById(R.id.carrito_id);
-
-        artefactos = new ArrayList<>();
+    }
+    private List<Artefacto> generarData(){
+        List<Artefacto> artefactos = new ArrayList<>();
         artefactos.add(new Artefacto("Xiami Pocophone F1", 1479.00,
                 "Snapdragon 660 octa-core Kryo 2.2 + 1.8 Ghz", "Adreno 512",
                 20.0, "IPS, 5.99’’", "4 / 6 GB", "32 / 64 / 128",
@@ -88,17 +98,20 @@ public class ResultadoBusqueda extends AppCompatActivity {
                 20.0, "IPS, 5.99’’", "4 / 6 GB", "32 / 64 / 128",
                 "3.010 mAh Quick Charge 3.0", R.drawable.xiaomi
         ));
-
-        RecyclerView artefactosList = (RecyclerView)findViewById(R.id.ArtefactosList);
+        return artefactos;
+    }
+    private void configDialog(){
+        dialog = new Dialog(this);
+        dialog.setContentView(R.layout.artefacto_detalles);
+    }
+    private void configRecycler(){
+        RecyclerView artefactosList = (RecyclerView) findViewById(R.id.ArtefactosList);
         artefactosList.setFocusable(false);
-        ArtefactoCardItemAdapter adapter = new ArtefactoCardItemAdapter(this,artefactos, dialog);
-        artefactosList.setLayoutManager(new GridLayoutManager(this,2));
+        ArtefactoCardItemAdapter adapter = new ArtefactoCardItemAdapter(this, artefactos, dialog);
+        artefactosList.setLayoutManager(new GridLayoutManager(this, 2));
         artefactosList.setAdapter(adapter);
 
-        resultadosView.setText("Resultados: " + artefactos.size());
-        Carrito.getInstance().carritoFeedBack(this);
     }
-
     public void verificarCambios(){
         for(Artefacto artefacto : artefactos){
 
@@ -131,14 +144,6 @@ public class ResultadoBusqueda extends AppCompatActivity {
 
     public void setDialog(Dialog dialog) {
         this.dialog = dialog;
-    }
-
-    public LinearLayout getCarrito() {
-        return carrito;
-    }
-
-    public void setCarrito(LinearLayout carrito) {
-        this.carrito = carrito;
     }
 
     public TextView getResultadosView() {
