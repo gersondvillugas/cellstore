@@ -152,6 +152,15 @@ public class Home extends AppCompatActivity implements
         Intent i=new Intent(Home.this,Search.class);
         startActivity(i);
     }
+   /* public void inicio(View view) {
+        Intent i=new Intent(Home.this,Home.class);
+        startActivity(i);
+    }
+    public void cuenta(View view) {
+        Intent i=new Intent(Home.this,RegisterActivity.class);
+        startActivity(i);
+    }*/
+
 
     /*public  boolean onNavigationItenSelected(MenuItem item){
 

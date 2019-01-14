@@ -1,1 +1,1 @@
-include ':app'
+include ':app', ':libprocesosmc_v1_0_7 _final'

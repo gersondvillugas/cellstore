@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/libprocesosmc_v1_0_7 _final" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -1,0 +1,2 @@
+configurations.maybeCreate("default")
+artifacts.add("default", file('libprocesosmc_v1_0_7 _final.jar'))

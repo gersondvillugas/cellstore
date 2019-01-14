@@ -22,7 +22,6 @@
         <item
             android:id="@+id/miCuentaMenuId"
             android:icon="@android:drawable/ic_dialog_email"
-
             android:title="MI CUENTA"/>
         <item
             android:id="@+id/contactenosMenuId"
